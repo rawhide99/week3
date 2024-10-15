@@ -17,11 +17,15 @@ void setup()
   TCCR1B = 0;                            // Clear control register
   TCCR1B |= (1 << WGM12);               // Set CTC mode
   TCCR1B |= (1 << CS12) | (1 << CS10); // Set prescaler to 1024
-  OCR1A = 15624;                      // Set compare match value for 1 second (16MHz / 1024 - 1)
+  OCR1A = 15624;                      // Set compare match value for 1 second (16MHz / 1024 * 1)
   TIMSK1 |= (1 << OCIE1A);           // Enable Timer 1 Compare A Match interrupt
   sei();                            // Enable global interrupts
 }
 
+void loop()
+{
+  
+}
 // Timer 1 Compare A Match interrupt service routine
 ISR(TIMER1_COMPA_vect) 
 {
