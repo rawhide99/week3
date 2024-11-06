@@ -7,6 +7,7 @@ class Sphere
         float radius;
     
     public:
+        float radi;
         void areaSphere (float rad)
         {
             radius = rad;
@@ -18,7 +19,13 @@ class Sphere
 int main()
 {
     Sphere s1;
+    //1st Method: Directly using the public data member and member function
+    s1.radi = 6;
+    cout << "1st Method: Directly using the public data member and member function." << endl;
+    s1.areaSphere(s1.radi);
+
+    // 2nd method: Indirectly accessing the private variable outside the class with a public member function
+    cout << "2nd method: Indirectly accessing the private variable outside the class with the help of a public member function." << endl;
     s1.areaSphere(7);
-    // This is the method to indirectly access the private variable outside the class if needed.
     return 0;
 }
