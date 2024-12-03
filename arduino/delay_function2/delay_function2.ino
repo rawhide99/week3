@@ -19,7 +19,7 @@ void self_delay()
   TCCR1B = 0;
   TCCR1B |= (1 << WGM12);
   TCCR1B |= (1 << CS12) | (1 << CS10); // Set prescaler to 1024
-  OCR1A = 7812;                       // Calculation is done like (500 * 10^-3 = ((1024 * tick_counts)/16 * 10^6))
+  OCR1A = 7812;                       // Calculation is done like (500 * 10^-3 = ((1024 * tick_counts)/16 * 10^6)) --> Configured as 500ms
   TIMSK1 |= (1 << OCIE1A);           // Enable Timer 1 Compare Match A interrupt
   sei();                            // Enable global interrupts
 }
